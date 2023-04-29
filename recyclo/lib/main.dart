@@ -1,80 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
-// import 'package:recyclo/screens/analysis_page.dart';
-// import 'package:recyclo/screens/information_page.dart';
-// import 'package:recyclo/screens/scanner_page.dart';
-// import 'package:recyclo/screens/stored_items_page.dart';
-
-// import 'screens/home_page.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   MyApp({super.key});
-
-//   final GoRouter _router = GoRouter(
-//     routes: <RouteBase>[
-//       GoRoute(
-//         path: '/',
-//         builder: (BuildContext context, GoRouterState state) {
-//           return const HomePage();
-//         },
-//         routes: <RouteBase>[
-//           GoRoute(
-//             path: 'info',
-//             builder: (BuildContext context, GoRouterState state) {
-//               return const InformationPage();
-//             },
-//           ),
-//           GoRoute(
-//             path: 'analysis',
-//             builder: (BuildContext context, GoRouterState state) {
-//               return const AnalysisPage();
-//             },
-//           ),
-//           GoRoute(
-//             path: 'scanner',
-//             builder: (BuildContext context, GoRouterState state) {
-//               return const ScannerPage();
-//             },
-//           ),
-//           GoRoute(
-//             path: 'items',
-//             builder: (BuildContext context, GoRouterState state) {
-//               return const StoredItemsPage();
-//             },
-//           ),
-//         ],
-//       ),
-//     ],
-//   );
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Recyclo',
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSwatch(
-//           backgroundColor: Colors.green,
-//         ),
-//       ),
-//       routerConfig: _router,
-//     );
-//     // return MaterialApp(
-//     //   title: 'Recyclo',
-//     //   theme: ThemeData(
-//     //     primarySwatch: Colors.green,
-//     //   ),
-//     //   home: const MyHomePage(title: 'Recyclo'),
-//     // );
-//   }
-// }
-
 import 'package:flutter/material.dart';
+import 'package:recyclo/models/stored_items.dart';
+import 'package:recyclo/widgets/item_list.dart';
 import 'widgets/scanner.dart';
 
 void main() => runApp(const Recyclo());
@@ -102,7 +28,7 @@ class RecycloStateful extends StatefulWidget {
 }
 
 class _RecycloStatefulState extends State<RecycloStateful> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -114,10 +40,11 @@ class _RecycloStatefulState extends State<RecycloStateful> {
 
   Widget getWiget() {
     if (_selectedIndex == 0) {
-      return const Text(
-        'Index 0: Info',
-        style: optionStyle,
-      );
+      // return const Text(
+      //   'Index 0: Info',
+      //   style: optionStyle,
+      // );
+      return const ItemList();
     } else if (_selectedIndex == 1) {
       
       return Scaffold(
