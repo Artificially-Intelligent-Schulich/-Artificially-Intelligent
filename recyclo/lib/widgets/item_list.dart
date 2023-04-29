@@ -11,13 +11,6 @@ class ItemList extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(50),
-            ),
-            color: Colors.green,
-          ),
           child: Column(
             children: [
               SizedBox(height: 80),
@@ -36,7 +29,7 @@ class ItemList extends StatelessWidget {
                   child: Text(
                     "My Items",
                     style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 30,
                         color: Colors.green,
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold),
