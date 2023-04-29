@@ -20,11 +20,11 @@ class User {
     this.tree = const Image(image: AssetImage('assets/images/sprout.png')),
   }) {
     categoryTally = {
-      'cardboard': 0,
-      'paper': 0,
-      'plastic': 0,
-      'metal': 0,
-      'trash': 0
+      'cardboard': 1,
+      'paper': 1,
+      'plastic': 1,
+      'metal': 1,
+      'trash': 1
     };
     item = StoredItems();
   }
