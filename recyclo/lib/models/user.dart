@@ -26,6 +26,7 @@ class User {
       'metal': 0,
       'trash': 0
     };
+    item = StoredItems();
   }
 
   void setupUser() {
