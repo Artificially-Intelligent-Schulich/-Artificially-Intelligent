@@ -51,11 +51,9 @@ class _RecycloStatefulState extends State<RecycloStateful> {
       // );
       return const ItemList();
     } else if (_selectedIndex == 1) {
-      
       return Scaffold(
         body: SafeArea(child: Scanner()),
       );
-
     } else if (_selectedIndex == 2) {
       return HomeWidget(user: user);
     } else if (_selectedIndex == 3) {
