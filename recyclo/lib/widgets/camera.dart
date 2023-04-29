@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recyclo/services/api_service.dart';
+import 'package:recyclo/models/stored_items.dart';
 
 class Camera extends StatefulWidget {
   const Camera({Key? key}) : super(key: key);
@@ -15,12 +16,16 @@ class Camera extends StatefulWidget {
 class _CameraState extends State<Camera> {
   File? _image = null;
   final ImagePicker _imagePicker = ImagePicker();
+  StoredItems myItems = StoredItems();
 
   Future<void> getImage() async {
+    
     final image = await _imagePicker.pickImage(source: ImageSource.camera);
     if (image != null) {
       final category = await ApiService().sendRequest(image.path);
+      myItems.addProduct('test', category);
       print(category);
+      print(myItems.items);
     }
     
 
@@ -36,7 +41,10 @@ class _CameraState extends State<Camera> {
     return Scaffold(
       body: Center(
         child: _image == null ? const Text("No Image to be displayed") : Image.file(_image!),
+        
       ),
+      
+   
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
         tooltip: 'Pick Image',
