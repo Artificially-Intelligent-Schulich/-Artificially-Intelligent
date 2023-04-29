@@ -55,6 +55,16 @@ class HomeWidget extends StatelessWidget {
                 child: Badges(points: user.points),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                'Welcome ${user.name}!',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 24,
+                ),
+              ),
+            ),
             const Spacer(),
             Padding(
               padding: EdgeInsets.all(8.0),
