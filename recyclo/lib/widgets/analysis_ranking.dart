@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:recyclo/widgets/ranking_element.dart';
 
 import '../models/item.dart';
 import '../models/user.dart';
@@ -11,11 +13,23 @@ class AnalysisRanking extends StatelessWidget {
   
   AnalysisRanking({super.key, required this.user}) {
     percentages = user.categoryTally;
+    ranking = calcPercentageRank();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          RankingElement(rank: 1, type: ranking[0], percentage: percentages[ranking[0]]!.toInt()),
+          RankingElement(rank: 2, type: ranking[1], percentage: percentages[ranking[1]]!.toInt()),
+          RankingElement(rank: 3, type: ranking[2], percentage: percentages[ranking[2]]!.toInt()),
+          RankingElement(rank: 4, type: ranking[3], percentage: percentages[ranking[3]]!.toInt()),
+          RankingElement(rank: 5, type: ranking[4], percentage: percentages[ranking[4]]!.toInt())
+        ],
+      )
+    );
   }
 
   List<String> calcPercentageRank() {
@@ -26,7 +40,6 @@ class AnalysisRanking extends StatelessWidget {
     for(String key in percentages.keys.toList()) {
       percentages[key] = ((percentages[key]! / totalCount) * 100).round();
       // Currently asserting not null for percentages[key].
-      percentages[key] = ((percentages[key]! ~/ totalCount) * 100);
     }
 
     // Use quicksort to rank the items from high to low.
