@@ -19,7 +19,7 @@ class Ranking extends StatelessWidget {
   
   List<String> calcPercentageRank() {
     List<String> rankings = [];
-    int totalCount = user.items.length;
+    int totalCount = user.item.length;
 
     // Calculate the percentage of total for each category.
     for(String key in percentages.keys) {
