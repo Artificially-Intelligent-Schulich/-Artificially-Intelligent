@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/info_widget.dart';
 import 'package:recyclo/models/stored_items.dart';
 import 'package:recyclo/widgets/home_widget.dart';
 import 'package:recyclo/widgets/item_list.dart';
@@ -45,11 +46,12 @@ class _RecycloStatefulState extends State<RecycloStateful> {
 
   Widget getWiget() {
     if (_selectedIndex == 0) {
+      return InfoWidget();
       // return const Text(
       //   'Index 0: Info',
       //   style: optionStyle,
       // );
-      return const ItemList();
+      
     } else if (_selectedIndex == 1) {
       return Scaffold(
         body: SafeArea(child: Scanner()),
@@ -62,10 +64,11 @@ class _RecycloStatefulState extends State<RecycloStateful> {
         style: optionStyle,
       );
     } else if (_selectedIndex == 4) {
-      return const Text(
+      /*return const Text(
         'Index 4: List',
         style: optionStyle,
-      );
+      );*/
+      return const ItemList();
     } else {
       return Container(
         child: const Text('This works'),
