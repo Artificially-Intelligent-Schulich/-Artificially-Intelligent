@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recyclo/widgets/info_widget.dart';
 import 'package:recyclo/models/stored_items.dart';
 import 'package:recyclo/widgets/item_list.dart';
+import 'widgets/scanner.dart';
 
 void main() => runApp(const Recyclo());
 
@@ -47,10 +48,11 @@ class _RecycloStatefulState extends State<RecycloStateful> {
       // );
       
     } else if (_selectedIndex == 1) {
-      return const Text(
-        'Index 1: Scanner',
-        style: optionStyle,
+      
+      return Scaffold(
+        body: SafeArea(child: Scanner()),
       );
+
     } else if (_selectedIndex == 2) {
       return const Text(
         'Index 2: Home',
