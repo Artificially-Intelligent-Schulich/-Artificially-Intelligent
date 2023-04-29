@@ -75,6 +75,7 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/info_widget.dart';
 
 void main() => runApp(const Recyclo());
 
@@ -113,10 +114,7 @@ class _RecycloStatefulState extends State<RecycloStateful> {
 
   Widget getWiget() {
     if (_selectedIndex == 0) {
-      return const Text(
-        'Index 0: Info',
-        style: optionStyle,
-      );
+      return InfoWidget();
     } else if (_selectedIndex == 1) {
       return const Text(
         'Index 1: Scanner',
