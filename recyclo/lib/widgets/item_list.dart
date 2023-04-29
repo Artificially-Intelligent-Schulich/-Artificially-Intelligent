@@ -12,19 +12,19 @@ class ItemList extends StatelessWidget {
       children: <Widget>[
         Container(
           width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(50),
-            ),
-            color: Colors.green,
-          ),
+          // decoration: BoxDecoration(
+          //   borderRadius: BorderRadius.only(
+          //     bottomRight: Radius.circular(50),
+          //   ),
+          //   color: Colors.green,
+          // ),
           child: Column(
             children: [
               SizedBox(height: 80),
               Container(
                 height: 80,
                 width: 1000,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(50),
@@ -32,7 +32,7 @@ class ItemList extends StatelessWidget {
                       topLeft: Radius.circular(50),
                       bottomLeft: Radius.circular(50)), // border only
                 ), // box decoration
-                child: Center(
+                child: const Center(
                   child: Text(
                     "My Items",
                     style: TextStyle(
@@ -55,9 +55,9 @@ class ItemList extends StatelessWidget {
                 for (var i in items)
                   Card(
                     child: Padding(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       child: Container(
-                        color: Color.fromARGB(255, 66, 66, 66),
+                        color: const Color.fromARGB(255, 66, 66, 66),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[

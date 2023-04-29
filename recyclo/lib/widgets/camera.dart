@@ -19,7 +19,6 @@ class _CameraState extends State<Camera> {
   StoredItems myItems = StoredItems();
 
   Future<void> getImage() async {
-    
     final image = await _imagePicker.pickImage(source: ImageSource.camera);
     if (image != null) {
       final category = await ApiService().sendRequest(image.path);
@@ -27,7 +26,6 @@ class _CameraState extends State<Camera> {
       print(category);
       print(myItems.items);
     }
-    
 
     if (image != null) {
       setState(() {
@@ -40,11 +38,10 @@ class _CameraState extends State<Camera> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _image == null ? const Text("No Image to be displayed") : Image.file(_image!),
-        
+        child: _image == null
+            ? const Text("No Image to be displayed")
+            : Image.file(_image!),
       ),
-      
-   
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
         tooltip: 'Pick Image',

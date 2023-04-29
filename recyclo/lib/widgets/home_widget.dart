@@ -17,13 +17,6 @@ class HomeWidget extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'ReCyclo',
-                style: TextStyle(fontSize: 50, fontFamily: 'OoohBaby'),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
