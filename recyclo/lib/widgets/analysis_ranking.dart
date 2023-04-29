@@ -4,11 +4,12 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import '../models/item.dart';
 import '../models/user.dart';
 
-class Ranking extends StatelessWidget {
+class AnalysisRanking extends StatelessWidget {
   User user;
-  Map<String, int> percentages = {};
-
-  Ranking({super.key, required this.user}) {
+  late Map<String, int> percentages;
+  List<String> ranking = [];
+  
+  AnalysisRanking({super.key, required this.user}) {
     percentages = user.categoryTally;
   }
 
@@ -22,7 +23,8 @@ class Ranking extends StatelessWidget {
     int totalCount = user.item.items.length;
 
     // Calculate the percentage of total for each category.
-    for (String key in percentages.keys) {
+    for(String key in percentages.keys.toList()) {
+      percentages[key] = ((percentages[key]! / totalCount) * 100).round();
       // Currently asserting not null for percentages[key].
       percentages[key] = ((percentages[key]! ~/ totalCount) * 100);
     }
