@@ -1,22 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:recyclo/screens/analysis_page.dart';
+import 'package:recyclo/screens/scanner_page.dart';
+
+import 'screens/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final GoRouter _router = GoRouter(
+    routes: <RouteBase>[
+      GoRoute(
+        path: 'landing',
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomePage();
+        },
+      ),
+      GoRoute(
+        name: 'analysis',
+        path: 'analysis',
+        builder: (BuildContext context, GoRouterState state) {
+          return const AnalysisPage();
+        },
+      ),
+      GoRoute(
+        path: 'scanner',
+        builder: (BuildContext context, GoRouterState state) {
+          return const ScannerPage();
+        },
+      ),
+    ],
+  );
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Recyclo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSwatch(
+          backgroundColor: Colors.green,
+        ),
       ),
-      home: const MyHomePage(title: 'Recyclo'),
+      routerConfig: _router,
     );
+    // return MaterialApp(
+    //   title: 'Recyclo',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.green,
+    //   ),
+    //   home: const MyHomePage(title: 'Recyclo'),
+    // );
   }
 }
 
