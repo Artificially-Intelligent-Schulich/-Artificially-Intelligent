@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/badges.dart';
 
 import 'item.dart';
 
@@ -6,15 +7,18 @@ class User {
   final String name;
   final String email;
   final int points;
-  final AssetImage badges;
-  final AssetImage tree;
-  final Item item;
+  late Badges badges;
+  late AssetImage tree;
+  late List<Item> item;
 
-  User(
-      {required this.name,
-      required this.email,
-      required this.points,
-      required this.badges,
-      required this.tree,
-      required this.item});
+  User({
+    required this.name,
+    required this.email,
+    this.points = 0,
+  });
+
+  void setupUser() {
+    badges = Badges(points: points);
+    tree = AssetImage('');
+  }
 }
