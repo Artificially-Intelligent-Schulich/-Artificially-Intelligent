@@ -44,11 +44,11 @@ class Badges extends StatelessWidget {
     determineBadges();
     return Row(children: <Widget>[
       Image(image: displayedBadges[0]),
-      Spacer(),
+      const Spacer(),
       Image(image: displayedBadges[1]),
-      Spacer(),
+      const Spacer(),
       Image(image: displayedBadges[2]),
-      Spacer(),
+      const Spacer(),
       Image(image: displayedBadges[3]),
     ]);
   }
