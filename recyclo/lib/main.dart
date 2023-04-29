@@ -1,121 +1,181 @@
+// import 'package:flutter/material.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:recyclo/screens/analysis_page.dart';
+// import 'package:recyclo/screens/information_page.dart';
+// import 'package:recyclo/screens/scanner_page.dart';
+// import 'package:recyclo/screens/stored_items_page.dart';
+
+// import 'screens/home_page.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   MyApp({super.key});
+
+//   final GoRouter _router = GoRouter(
+//     routes: <RouteBase>[
+//       GoRoute(
+//         path: '/',
+//         builder: (BuildContext context, GoRouterState state) {
+//           return const HomePage();
+//         },
+//         routes: <RouteBase>[
+//           GoRoute(
+//             path: 'info',
+//             builder: (BuildContext context, GoRouterState state) {
+//               return const InformationPage();
+//             },
+//           ),
+//           GoRoute(
+//             path: 'analysis',
+//             builder: (BuildContext context, GoRouterState state) {
+//               return const AnalysisPage();
+//             },
+//           ),
+//           GoRoute(
+//             path: 'scanner',
+//             builder: (BuildContext context, GoRouterState state) {
+//               return const ScannerPage();
+//             },
+//           ),
+//           GoRoute(
+//             path: 'items',
+//             builder: (BuildContext context, GoRouterState state) {
+//               return const StoredItemsPage();
+//             },
+//           ),
+//         ],
+//       ),
+//     ],
+//   );
+
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp.router(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Recyclo',
+//       theme: ThemeData(
+//         colorScheme: ColorScheme.fromSwatch(
+//           backgroundColor: Colors.green,
+//         ),
+//       ),
+//       routerConfig: _router,
+//     );
+//     // return MaterialApp(
+//     //   title: 'Recyclo',
+//     //   theme: ThemeData(
+//     //     primarySwatch: Colors.green,
+//     //   ),
+//     //   home: const MyHomePage(title: 'Recyclo'),
+//     // );
+//   }
+// }
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:recyclo/screens/analysis_page.dart';
-import 'package:recyclo/screens/information_page.dart';
-import 'package:recyclo/screens/scanner_page.dart';
-import 'package:recyclo/screens/stored_items_page.dart';
 
-import 'screens/home_page.dart';
+void main() => runApp(const Recyclo());
 
-void main() {
-  runApp(MyApp());
-}
+class Recyclo extends StatelessWidget {
+  const Recyclo({super.key});
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  static const String _title = 'Flutter Code Sample';
 
-  final GoRouter _router = GoRouter(
-    routes: <RouteBase>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return const HomePage();
-        },
-        routes: <RouteBase>[
-          GoRoute(
-            path: 'info',
-            builder: (BuildContext context, GoRouterState state) {
-              return const InformationPage();
-            },
-          ),
-          GoRoute(
-            path: 'analysis',
-            builder: (BuildContext context, GoRouterState state) {
-              return const AnalysisPage();
-            },
-          ),
-          GoRoute(
-            path: 'scanner',
-            builder: (BuildContext context, GoRouterState state) {
-              return const ScannerPage();
-            },
-          ),
-          GoRoute(
-            path: 'items',
-            builder: (BuildContext context, GoRouterState state) {
-              return const StoredItemsPage();
-            },
-          ),
-        ],
-      ),
-    ],
-  );
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return const MaterialApp(
+      title: _title,
+      home: RecycloStateful(),
       debugShowCheckedModeBanner: false,
-      title: 'Recyclo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          backgroundColor: Colors.green,
-        ),
-      ),
-      routerConfig: _router,
     );
-    // return MaterialApp(
-    //   title: 'Recyclo',
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.green,
-    //   ),
-    //   home: const MyHomePage(title: 'Recyclo'),
-    // );
   }
 }
 
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
+class RecycloStateful extends StatefulWidget {
+  const RecycloStateful({super.key});
 
-//   // This widget is the home page of your application. It is stateful, meaning
-//   // that it has a State object (defined below) that contains fields that affect
-//   // how it looks.
+  @override
+  State<RecycloStateful> createState() => _RecycloStatefulState();
+}
 
-//   final String title;
+class _RecycloStatefulState extends State<RecycloStateful> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
+  Widget getWiget() {
+    if (_selectedIndex == 0) {
+      return const Text(
+        'Index 0: Info',
+        style: optionStyle,
+      );
+    } else if (_selectedIndex == 1) {
+      return const Text(
+        'Index 1: Scanner',
+        style: optionStyle,
+      );
+    } else if (_selectedIndex == 2) {
+      return const Text(
+        'Index 2: Home',
+        style: optionStyle,
+      );
+    } else if (_selectedIndex == 3) {
+      return const Text(
+        'Index 3: Analysis',
+        style: optionStyle,
+      );
+    } else if (_selectedIndex == 4) {
+      return const Text(
+        'Index 4: List',
+        style: optionStyle,
+      );
+    } else {
+      return Container(
+        child: const Text('This works'),
+      );
+    }
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     // This method is rerun every time setState is called, for instance as done
-//     // by the _incrementCounter method above.
-//     //
-//     // The Flutter framework has been optimized to make rerunning build methods
-//     // fast, so that you can just rebuild anything that needs updating rather
-//     // than having to individually change instances of widgets.
-//     return Scaffold(
-//       appBar: AppBar(
-//         // Here we take the value from the MyHomePage object that was created by
-//         // the App.build method, and use it to set our appbar title.
-//         title: Text(widget.title),
-//       ),
-//       // backgroundColor:
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: (() {}),
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ), // This trailing comma makes auto-formatting nicer for build methods.
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(child: getWiget()),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info_outline),
+            label: 'Info',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera_alt_outlined),
+            label: 'Scanner',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.analytics_outlined),
+            label: 'Analysis',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Items',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green[300],
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}

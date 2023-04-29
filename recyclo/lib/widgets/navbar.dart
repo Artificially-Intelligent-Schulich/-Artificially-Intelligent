@@ -38,7 +38,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                   if (state.location == '/info') {
                     null;
                   } else {
-                    context.pushReplacement('/info');
+                    context.push('/info');
                   }
                 },
               ),
@@ -70,7 +70,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                   if (state.location == '/scanner') {
                     null;
                   } else {
-                    context.pushReplacement('/scanner');
+                    context.push('/scanner');
                   }
                 },
               ),
@@ -86,7 +86,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                   if (state.location == '/analysis') {
                     null;
                   } else {
-                    context.pushReplacement('/analysis');
+                    context.push('/analysis');
                   }
                 },
               ),

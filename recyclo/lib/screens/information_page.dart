@@ -9,7 +9,7 @@ class InformationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: NavBar(),
+        // bottomNavigationBar: NavBar(),
         body: Center(
           child: Text('This works'),
         ),
