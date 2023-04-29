@@ -57,31 +57,30 @@ class ItemList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.only(left: 30.0),
                         child: SizedBox(
                           height: 100,
                           width: 100,
                           child: Image.asset('assets/images/${i.category}.png'),
                         ),
                       ),
-                      SizedBox(
-                        height: 40,
-                        width: 200,
+                      Flexible(
                         child: Text(
                           i.itemName,
-                          style: const TextStyle(fontSize: 25),
-                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 20),
+                          textAlign: TextAlign.left,
                         ),
                       ),
-                      SizedBox(
-                        height: 40,
-                        width: 200,
-                        child: Text(
-                          i.category,
-                          style: const TextStyle(fontSize: 25),
-                          textAlign: TextAlign.center,
+                      Padding(
+                        padding: EdgeInsets.only(right: 50.0),
+                        child: Flexible(
+                          child: Text(
+                            i.category,
+                            style: const TextStyle(fontSize: 20),
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                      ),
+                      )
                     ],
                   )
               ],
