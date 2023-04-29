@@ -9,7 +9,7 @@ class User {
   final int points;
   late Badges badges;
   Image tree;
-  late List<Item> items;
+  late List<Item> item;
   late Map<String, int> categoryTally;
 
   User({
@@ -19,7 +19,7 @@ class User {
     this.tree = const Image(image: AssetImage('assets/images/sprout.png')),
   }) {
     categoryTally = {'cardboard': 0, 'paper': 0, 'plastic': 0, 'metal': 0, 'trash': 0};
-    items = [];
+    item = [];
   }
 
   void setupUser() {
