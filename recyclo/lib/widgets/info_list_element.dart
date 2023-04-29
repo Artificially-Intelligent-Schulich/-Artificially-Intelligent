@@ -6,10 +6,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 class InfoListElement extends StatelessWidget {
   String name;
+  String info;
   Uri url;
   String imageUrl;
 
-  InfoListElement({super.key, required this.name, required this.url, required this.imageUrl});
+  InfoListElement({super.key, required this.name, required this.url, required this.info, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,10 @@ class InfoListElement extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         InkWell(
-          child: Text(name),
-          onTap: () => _launchUri()
+          child: Text(name, style: TextStyle(color: Colors.blue)),
+          onTap: () =>_launchUri()
         ),
+        Text(info),
         SizedBox(
           width: 144,
           height: 144,
