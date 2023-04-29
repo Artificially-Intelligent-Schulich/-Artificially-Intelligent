@@ -47,11 +47,6 @@ class _RecycloStatefulState extends State<RecycloStateful> {
   Widget getWiget() {
     if (_selectedIndex == 0) {
       return InfoWidget();
-      // return const Text(
-      //   'Index 0: Info',
-      //   style: optionStyle,
-      // );
-      
     } else if (_selectedIndex == 1) {
       return Scaffold(
         body: SafeArea(child: Camera()),
@@ -64,14 +59,10 @@ class _RecycloStatefulState extends State<RecycloStateful> {
         style: optionStyle,
       );
     } else if (_selectedIndex == 4) {
-      /*return const Text(
-        'Index 4: List',
-        style: optionStyle,
-      );*/
       return const ItemList();
     } else {
       return Container(
-        child: const Text('This works'),
+        child: const Text('ReCyclo'),
       );
     }
   }
@@ -80,6 +71,12 @@ class _RecycloStatefulState extends State<RecycloStateful> {
   Widget build(BuildContext context) {
     user.setupUser;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: const Text('ReCyclo'),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(fontSize: 42, fontFamily: 'OoohBaby'),
+      ),
       body: SafeArea(child: getWiget()),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
