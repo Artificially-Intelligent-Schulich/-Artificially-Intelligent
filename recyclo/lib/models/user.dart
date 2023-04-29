@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/badges.dart';
 
 import 'item.dart';
 
@@ -6,15 +7,38 @@ class User {
   final String name;
   final String email;
   final int points;
-  final AssetImage badges;
-  final AssetImage tree;
-  final Item item;
+  late Badges badges;
+  Image tree;
+  late List<Item> item;
+  late Map<String, int> categoryTally;
 
-  User(
-      {required this.name,
-      required this.email,
-      required this.points,
-      required this.badges,
-      required this.tree,
-      required this.item});
+  User({
+    required this.name,
+    required this.email,
+    this.points = 0,
+    this.tree = const Image(image: AssetImage('assets/images/sprout.png')),
+  }) {
+    categoryTally = {'cardboard': 0, 'paper': 0, 'plastic': 0, 'metal': 0, 'trash': 0};
+    item = [];
+  }
+
+  void setupUser() {
+    badges = Badges(points: points);
+  }
+
+  Image determineTree() {
+    if (points <= 5) {
+      tree = const Image(
+        image: AssetImage('assets/images/sprout.png'),
+        height: 200,
+      );
+    } else if (points <= 10) {
+      tree = const Image(image: AssetImage('assets/images/smalltree.png'));
+    } else if (points <= 15) {
+      tree = const Image(image: AssetImage('assets/images/bigtree2.png'));
+    } else {
+      tree = const Image(image: AssetImage('assets/images/forest.png'));
+    }
+    return tree;
+  }
 }
