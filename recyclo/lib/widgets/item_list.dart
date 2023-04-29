@@ -34,7 +34,7 @@ class ItemList extends StatelessWidget {
                 ), // box decoration
                 child: Center(
                   child: Text(
-                    "ReCyclo",
+                    "My Items",
                     style: TextStyle(
                         fontSize: 50,
                         color: Colors.green,
@@ -54,20 +54,10 @@ class ItemList extends StatelessWidget {
               children: <Widget>[
                 for (var i in items)
                   Card(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.white,
-                            Color.fromARGB(255, 78, 80, 78),
-                          ],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          stops: [0.9, 0.1],
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(16),
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Container(
+                        color: Color.fromARGB(255, 66, 66, 66),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -84,7 +74,9 @@ class ItemList extends StatelessWidget {
                               child: Text(
                                 i.itemName,
                                 style: const TextStyle(
-                                    fontSize: 20, color: Colors.black),
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -94,9 +86,10 @@ class ItemList extends StatelessWidget {
                                 child: Text(
                                   i.category,
                                   style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
