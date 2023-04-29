@@ -1,2 +1,2 @@
-# -Artificially-Intelligent
+# Artificially-Intelligent
 Schulich Hacks
