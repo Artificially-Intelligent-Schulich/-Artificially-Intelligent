@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:recyclo/services/userService.dart';
 
 class Scanner extends StatefulWidget {
-  const Scanner({super.key});
+  Scanner({super.key}){
+    loadUser();
+  }
+
+  loadUser() async {
+    final results = await UserService().getUser();
+    print(results.length);
+    results.forEach((v) {
+      print(v.email);
+    });
+  }
 
   @override
   State<Scanner> createState() => _ScannerState();
