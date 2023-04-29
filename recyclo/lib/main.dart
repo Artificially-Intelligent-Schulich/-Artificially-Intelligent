@@ -75,6 +75,8 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:recyclo/models/stored_items.dart';
+import 'package:recyclo/widgets/item_list.dart';
 
 void main() => runApp(const Recyclo());
 
@@ -101,7 +103,7 @@ class RecycloStateful extends StatefulWidget {
 }
 
 class _RecycloStatefulState extends State<RecycloStateful> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -113,10 +115,11 @@ class _RecycloStatefulState extends State<RecycloStateful> {
 
   Widget getWiget() {
     if (_selectedIndex == 0) {
-      return const Text(
-        'Index 0: Info',
-        style: optionStyle,
-      );
+      // return const Text(
+      //   'Index 0: Info',
+      //   style: optionStyle,
+      // );
+      return const ItemList();
     } else if (_selectedIndex == 1) {
       return const Text(
         'Index 1: Scanner',
