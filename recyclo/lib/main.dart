@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:recyclo/screens/analysis_page.dart';
 import 'package:recyclo/screens/information_page.dart';
 import 'package:recyclo/screens/scanner_page.dart';
+import 'package:recyclo/screens/stored_items_page.dart';
 
 import 'screens/home_page.dart';
 
@@ -21,12 +22,6 @@ class MyApp extends StatelessWidget {
           return const HomePage();
         },
         routes: <RouteBase>[
-          // GoRoute(
-          //   path: '/',
-          //   builder: (BuildContext context, GoRouterState state) {
-          //     return const HomePage();
-          //   },
-          // ),
           GoRoute(
             path: 'info',
             builder: (BuildContext context, GoRouterState state) {
@@ -34,7 +29,6 @@ class MyApp extends StatelessWidget {
             },
           ),
           GoRoute(
-            // name: 'analysis',
             path: 'analysis',
             builder: (BuildContext context, GoRouterState state) {
               return const AnalysisPage();
@@ -44,6 +38,12 @@ class MyApp extends StatelessWidget {
             path: 'scanner',
             builder: (BuildContext context, GoRouterState state) {
               return const ScannerPage();
+            },
+          ),
+          GoRoute(
+            path: 'items',
+            builder: (BuildContext context, GoRouterState state) {
+              return const StoredItemsPage();
             },
           ),
         ],

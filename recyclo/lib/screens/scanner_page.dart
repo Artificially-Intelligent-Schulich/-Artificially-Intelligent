@@ -1,7 +1,8 @@
 //scans object and adds it to your page
 
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/navbar.dart';
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage({super.key});
@@ -13,6 +14,13 @@ class ScannerPage extends StatefulWidget {
 class _ScannerPageState extends State<ScannerPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: NavBar(),
+        body: Center(
+          child: Text('This works'),
+        ),
+      ),
+    );
   }
 }

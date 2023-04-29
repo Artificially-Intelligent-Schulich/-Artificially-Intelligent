@@ -2,6 +2,7 @@
 //maybe google sign in
 
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/navbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,9 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: const AppBar(
-        //   color: Colors.blue,
-        // ),
+        bottomNavigationBar: NavBar(),
         body: Center(
           child: Text('This works'),
         ),

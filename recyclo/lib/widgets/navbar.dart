@@ -19,79 +19,81 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var route = ModalRoute.of(context);
 
-    return AppBar(
-      backgroundColor: color,
-      actions: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              icon: const Icon(
-                Icons.info,
-                color: Colors.white,
-                semanticLabel: 'Info',
+    return BottomAppBar(
+      color: color,
+      child: Row(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.info,
+                  color: Colors.white,
+                  semanticLabel: 'Info',
+                ),
+                onPressed: () {
+                  final GoRouterState state = GoRouterState.of(context);
+                  // print('The location is ${state.location}');
+                  if (state.location == '/info') {
+                    null;
+                  } else {
+                    context.pushReplacement('/info');
+                  }
+                },
               ),
-              onPressed: () {
-                final GoRouterState state = GoRouterState.of(context);
-                // print('The location is ${state.location}');
-                if (state.location == '/info') {
-                  null;
-                } else {
-                  context.pushReplacement('/info');
-                }
-              },
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.home,
-                color: Colors.white,
-                semanticLabel: 'Home',
+              IconButton(
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.white,
+                  semanticLabel: 'Home',
+                ),
+                onPressed: () {
+                  final GoRouterState state = GoRouterState.of(context);
+                  // print('The location is ${state.location}');
+                  if (state.location == '/') {
+                    null;
+                  } else {
+                    context.pushReplacement('/');
+                  }
+                },
               ),
-              onPressed: () {
-                final GoRouterState state = GoRouterState.of(context);
-                // print('The location is ${state.location}');
-                if (state.location == '/') {
-                  null;
-                } else {
-                  context.pushReplacement('/');
-                }
-              },
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.camera,
-                color: Colors.white,
-                semanticLabel: 'Home',
+              IconButton(
+                icon: const Icon(
+                  Icons.camera,
+                  color: Colors.white,
+                  semanticLabel: 'Home',
+                ),
+                onPressed: () {
+                  final GoRouterState state = GoRouterState.of(context);
+                  // print('The location is ${state.location}');
+                  if (state.location == '/scanner') {
+                    null;
+                  } else {
+                    context.pushReplacement('/scanner');
+                  }
+                },
               ),
-              onPressed: () {
-                final GoRouterState state = GoRouterState.of(context);
-                // print('The location is ${state.location}');
-                if (state.location == '/scanner') {
-                  null;
-                } else {
-                  context.pushReplacement('/scanner');
-                }
-              },
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.analytics,
-                color: Colors.white,
-                semanticLabel: 'Analysis',
+              IconButton(
+                icon: const Icon(
+                  Icons.analytics,
+                  color: Colors.white,
+                  semanticLabel: 'Analysis',
+                ),
+                onPressed: () {
+                  final GoRouterState state = GoRouterState.of(context);
+                  // print('The location is ${state.location}');
+                  if (state.location == '/analysis') {
+                    null;
+                  } else {
+                    context.pushReplacement('/analysis');
+                  }
+                },
               ),
-              onPressed: () {
-                final GoRouterState state = GoRouterState.of(context);
-                // print('The location is ${state.location}');
-                if (state.location == '/analysis') {
-                  null;
-                } else {
-                  context.pushReplacement('/analysis');
-                }
-              },
-            ),
-          ],
-        )
-      ],
+            ],
+          )
+        ],
+      ),
     );
   }
 }
