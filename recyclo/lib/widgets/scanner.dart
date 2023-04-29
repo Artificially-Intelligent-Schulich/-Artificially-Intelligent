@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:recyclo/services/userService.dart';
+import 'package:recyclo/services/api_service.dart';
 
 class Scanner extends StatefulWidget {
   Scanner({super.key}){
-    loadUser();
+    loadData();
   }
 
-  loadUser() async {
-    final results = await UserService().getUser();
-    print(results.length);
-    results.forEach((v) {
-      print(v.email);
-    });
+  loadData() async {
+    final results = await ApiService().sendRequest();
   }
 
   @override
