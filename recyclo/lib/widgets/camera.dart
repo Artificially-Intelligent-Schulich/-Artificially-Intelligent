@@ -35,7 +35,7 @@ class _CameraState extends State<Camera> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _image == null ? const Text("No") : Image.file(_image!),
+        child: _image == null ? const Text("No Image to be displayed") : Image.file(_image!),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
