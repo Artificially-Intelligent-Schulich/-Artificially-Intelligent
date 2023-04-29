@@ -60,7 +60,7 @@ class AnalysisRanking extends StatelessWidget {
     // Calculate the percentage of total for each category.
     for(String key in percentages.keys.toList()) {
       percentages[key] = ((percentages[key]! ~/ totalCount) * 100);
-      print("Total count: " + totalCount.toString());
+      print("Percentages count: " + percentages[key].toString());
       // Currently asserting not null for percentages[key].
       /*
       if(totalCount != 0) {
