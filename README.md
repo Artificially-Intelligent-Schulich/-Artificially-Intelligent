@@ -1,2 +1,0 @@
-# Artificially-Intelligent
-Schulich Hacks
