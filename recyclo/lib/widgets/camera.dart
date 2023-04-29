@@ -19,8 +19,8 @@ class _CameraState extends State<Camera> {
   Future<void> getImage() async {
     final image = await _imagePicker.pickImage(source: ImageSource.camera);
     if (image != null) {
-      print(image.path);
       final category = await ApiService().sendRequest(image.path);
+      print(category);
     }
     
 
