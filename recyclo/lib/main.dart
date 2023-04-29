@@ -47,11 +47,6 @@ class _RecycloStatefulState extends State<RecycloStateful> {
   Widget getWiget() {
     if (_selectedIndex == 0) {
       return InfoWidget();
-      // return const Text(
-      //   'Index 0: Info',
-      //   style: optionStyle,
-      // );
-
     } else if (_selectedIndex == 1) {
       return Scaffold(
         body: SafeArea(child: Camera()),
@@ -71,7 +66,7 @@ class _RecycloStatefulState extends State<RecycloStateful> {
       return ItemList();
     } else {
       return Container(
-        child: const Text('This works'),
+        child: const Text('ReCyclo'),
       );
     }
   }
