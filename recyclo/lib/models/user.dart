@@ -16,7 +16,7 @@ class User {
   User({
     required this.name,
     required this.email,
-    this.points = 0,
+    this.points = 15,
     this.tree = const Image(image: AssetImage('assets/images/sprout.png')),
   }) {
     categoryTally = {
