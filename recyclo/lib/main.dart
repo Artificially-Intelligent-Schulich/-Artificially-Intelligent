@@ -3,7 +3,7 @@ import 'package:recyclo/widgets/info_widget.dart';
 import 'package:recyclo/models/stored_items.dart';
 import 'package:recyclo/widgets/home_widget.dart';
 import 'package:recyclo/widgets/item_list.dart';
-import 'widgets/scanner.dart';
+import 'widgets/camera.dart';
 
 import 'models/user.dart';
 
@@ -54,7 +54,7 @@ class _RecycloStatefulState extends State<RecycloStateful> {
       
     } else if (_selectedIndex == 1) {
       return Scaffold(
-        body: SafeArea(child: Scanner()),
+        body: SafeArea(child: Camera()),
       );
     } else if (_selectedIndex == 2) {
       return HomeWidget(user: user);
