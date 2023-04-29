@@ -7,6 +7,7 @@ class ItemList extends StatelessWidget {
   const ItemList({super.key});
 
   Widget createListWidget(List<Item> items) {
+    //final double width = MediaQuery.of(context.size.height);
     return Column(
       children: <Widget>[
         Container(
@@ -21,7 +22,7 @@ class ItemList extends StatelessWidget {
               SizedBox(height: 80),
               Container(
                 height: 80,
-                width: 300,
+                width: 1000,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
