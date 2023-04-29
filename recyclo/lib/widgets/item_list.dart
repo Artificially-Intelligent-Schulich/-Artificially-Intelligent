@@ -53,35 +53,58 @@ class ItemList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 for (var i in items)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30.0),
-                        child: SizedBox(
-                          height: 100,
-                          width: 100,
-                          child: Image.asset('assets/images/${i.category}.png'),
+                  Card(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.white,
+                            Color.fromARGB(255, 78, 80, 78),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          stops: [0.9, 0.1],
                         ),
                       ),
-                      Flexible(
-                        child: Text(
-                          i.itemName,
-                          style: const TextStyle(fontSize: 20),
-                          textAlign: TextAlign.left,
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30.0),
+                              child: SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Image.asset(
+                                    'assets/images/${i.category}.png'),
+                              ),
+                            ),
+                            Flexible(
+                              child: Text(
+                                i.itemName,
+                                style: const TextStyle(
+                                    fontSize: 20, color: Colors.black),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 50.0),
+                              child: Flexible(
+                                child: Text(
+                                  i.category,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 50.0),
-                        child: Flexible(
-                          child: Text(
-                            i.category,
-                            style: const TextStyle(fontSize: 20),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                      )
-                    ],
+                    ),
                   )
               ],
             ),
