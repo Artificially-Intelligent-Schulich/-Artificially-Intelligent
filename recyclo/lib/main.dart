@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recyclo/widgets/analysis_ranking.dart';
 import 'package:recyclo/widgets/info_widget.dart';
 import 'package:recyclo/models/stored_items.dart';
 import 'package:recyclo/widgets/home_widget.dart';
@@ -59,9 +60,8 @@ class _RecycloStatefulState extends State<RecycloStateful> {
     } else if (_selectedIndex == 2) {
       return HomeWidget(user: user);
     } else if (_selectedIndex == 3) {
-      return const Text(
-        'Index 3: Analysis',
-        style: optionStyle,
+      return AnalysisRanking(
+        user: user
       );
     } else if (_selectedIndex == 4) {
       /*return const Text(

@@ -1,30 +1,75 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:recyclo/widgets/ranking_element.dart';
 
 import '../models/item.dart';
 import '../models/user.dart';
 
-class Ranking extends StatelessWidget {
+class AnalysisRanking extends StatelessWidget {
   User user;
   Map<String, int> percentages = {};
+  List<String> ranking = [];
   
-  Ranking({super.key, required this.user}) {
+  AnalysisRanking({super.key, required this.user}) {
     percentages = user.categoryTally;
+    ranking = calcPercentageRank();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text("Your Waste Profile"),
+          RankingElement(
+            rank: 1,
+            type: ranking[0],
+            percentage: percentages[ranking[0]]!.toInt()
+          ),
+          RankingElement(
+            rank: 2,
+            type: ranking[1],
+            percentage: percentages[ranking[1]]!.toInt()
+          ),
+          RankingElement(
+            rank: 3,
+            type: ranking[2],
+            percentage: percentages[ranking[2]]!.toInt()
+          ),
+                    RankingElement(
+            rank: 4,
+            type: ranking[3],
+            percentage: percentages[ranking[3]]!.toInt()
+          ),
+                    RankingElement(
+            rank: 5,
+            type: ranking[4],
+            percentage: percentages[ranking[4]]!.toInt()
+          )
+        ]
+      )
+    );
   }
   
   List<String> calcPercentageRank() {
     List<String> rankings = [];
-    int totalCount = user.item.length;
+    int totalCount = user.item.items.length;
 
     // Calculate the percentage of total for each category.
-    for(String key in percentages.keys) {
-      // Currently asserting not null for percentages[key].
+    for(String key in percentages.keys.toList()) {
       percentages[key] = ((percentages[key]! ~/ totalCount) * 100);
+      print("Total count: " + totalCount.toString());
+      // Currently asserting not null for percentages[key].
+      /*
+      if(totalCount != 0) {
+        percentages[key] = ((percentages[key]! ~/ totalCount) * 100);
+      }
+      else{
+        percentages[key] = 0;
+      }
+      */
     }
 
     // Use quicksort to rank the items from high to low.

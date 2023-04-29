@@ -10,36 +10,36 @@ class InfoWidget extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
-            const Text("Wows cool"),
+            const Text("Links Go Here"),
             InfoListElement(
-              name: "Rick Astley", 
-              url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              name: "Government of Canada Zero Waste", 
+              url: Uri.parse("https://www.canada.ca/en/environment-climate-change/services/managing-reducing-waste/reduce-plastic-waste.html"),
+              image: '\\assets\\images\\gov_can_zero_waste.png'
             ),
             InfoListElement(
               name: "Rick Astley", 
               url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              image: "/assets/images/shield.png"
             ),
             InfoListElement(
               name: "Rick Astley", 
               url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              image: '/assets/images/shield.png'
             ),
             InfoListElement(
               name: "Rick Astley", 
               url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              image: '/assets/images/shield.png'
             ),
             InfoListElement(
               name: "Rick Astley", 
               url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              image: '/assets/images/shield.png'
             ),
             InfoListElement(
               name: "Rick Astley", 
               url: Uri.parse("https://youtu.be/dQw4w9WgXcQ"),
-              imageUrl: 'https://d.newsweek.com/en/full/851250/keyboard-cat.jpg?w=1600&h=1200&q=88&f=4c3879c4f6f8e6c63ccb215ce2d1e09a'
+              image: '/assets/images/shield.png'
             ),
           ] 
         )
