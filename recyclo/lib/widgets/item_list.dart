@@ -11,6 +11,7 @@ class ItemList extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
+          width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(50),
@@ -26,9 +27,10 @@ class ItemList extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(50),
-                    bottomRight: Radius.circular(50),
-                  ), // border only
+                      topRight: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                      topLeft: Radius.circular(50),
+                      bottomLeft: Radius.circular(50)), // border only
                 ), // box decoration
                 child: Center(
                   child: Text(
