@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recyclo/widgets/info_widget.dart';
 import 'package:recyclo/models/stored_items.dart';
+import 'package:recyclo/widgets/home_widget.dart';
 import 'package:recyclo/widgets/item_list.dart';
 import 'widgets/scanner.dart';
+
+import 'models/user.dart';
 
 void main() => runApp(const Recyclo());
 
@@ -33,6 +36,8 @@ class _RecycloStatefulState extends State<RecycloStateful> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
+  User user = User(name: 'Anna Summers', email: 'asummers@gmail.com');
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -54,10 +59,7 @@ class _RecycloStatefulState extends State<RecycloStateful> {
       );
 
     } else if (_selectedIndex == 2) {
-      return const Text(
-        'Index 2: Home',
-        style: optionStyle,
-      );
+      return HomeWidget(user: user);
     } else if (_selectedIndex == 3) {
       return const Text(
         'Index 3: Analysis',
@@ -78,6 +80,7 @@ class _RecycloStatefulState extends State<RecycloStateful> {
 
   @override
   Widget build(BuildContext context) {
+    user.setupUser;
     return Scaffold(
       body: SafeArea(child: getWiget()),
       bottomNavigationBar: BottomNavigationBar(
