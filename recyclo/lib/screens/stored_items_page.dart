@@ -1,0 +1,1 @@
+//items previously scanned

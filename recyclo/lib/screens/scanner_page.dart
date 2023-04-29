@@ -1,0 +1,1 @@
+//scans object and adds it to your page
