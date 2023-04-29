@@ -8,17 +8,37 @@ class User {
   final String email;
   final int points;
   late Badges badges;
-  late AssetImage tree;
-  late List<Item> item;
+  Image tree;
+  late List<Item> items;
+  late Map<String, int> categoryTally;
 
   User({
     required this.name,
     required this.email,
     this.points = 0,
-  });
+    this.tree = const Image(image: AssetImage('assets/images/sprout.png')),
+  }) {
+    categoryTally = {'cardboard': 0, 'paper': 0, 'plastic': 0, 'metal': 0, 'trash': 0};
+    items = [];
+  }
 
   void setupUser() {
     badges = Badges(points: points);
-    tree = AssetImage('');
+  }
+
+  Image determineTree() {
+    if (points <= 5) {
+      tree = const Image(
+        image: AssetImage('assets/images/sprout.png'),
+        height: 200,
+      );
+    } else if (points <= 10) {
+      tree = const Image(image: AssetImage('assets/images/smalltree.png'));
+    } else if (points <= 15) {
+      tree = const Image(image: AssetImage('assets/images/bigtree2.png'));
+    } else {
+      tree = const Image(image: AssetImage('assets/images/forest.png'));
+    }
+    return tree;
   }
 }

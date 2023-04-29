@@ -6,7 +6,6 @@ import '../models/item.dart';
 import '../models/user.dart';
 
 class Histogram extends StatelessWidget {
-  User user;
   List<Item> items;
   
   Histogram({super.key, required this.items});
@@ -16,7 +15,6 @@ class Histogram extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-
         ],)
     );
   }
